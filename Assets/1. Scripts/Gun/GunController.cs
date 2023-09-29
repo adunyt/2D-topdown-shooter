@@ -16,7 +16,7 @@ public class GunController : MonoBehaviour
         var hitCollider = hit.collider;
         if (hitCollider != null)
         {
-            hittenObject = hit.collider.gameObject;
+            hittenObject = hitCollider.gameObject;
             onHit.Invoke(hittenObject);
         }
         else
