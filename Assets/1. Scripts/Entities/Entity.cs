@@ -23,8 +23,8 @@ public class Entity : MonoBehaviour
 
     public void Hit(int damage)
     {
-        HP -= damage;
-        if (HP > 0)
+        currentHP -= damage;
+        if (currentHP > 0)
         {
             onHit.Invoke();
         }

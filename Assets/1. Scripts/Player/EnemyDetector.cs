@@ -8,6 +8,7 @@ public class EnemyDetector : MonoBehaviour
     [Tooltip("Вызывает данное событие, когда замечается объект, либо меняется близжайший обьект, когда их несколько в поле зрения")]
     [SerializeField] private UnityEvent<GameObject> onDetect;
     [SerializeField] private UnityEvent onLost;
+    [SerializeField] private string enemyTag;
 
     [Header("Info")]
     [SerializeField][ReadOnly] private GameObject closestEnemy;
@@ -20,13 +21,13 @@ public class EnemyDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag(enemyTag))
             detectedEnemies.Add(collision.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag(enemyTag))
             detectedEnemies.Remove(collision.gameObject);
     }
 

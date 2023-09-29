@@ -31,6 +31,6 @@ public class LIneRendererManipulator : MonoBehaviour
         if (!lookAtObject)
             return;
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, transform.TransformPoint(Vector2.right * 3));
+        lineRenderer.SetPosition(1, transform.TransformPoint(Vector2.up * 3));
     }
 }

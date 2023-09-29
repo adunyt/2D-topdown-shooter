@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float speed = 1;
     [SerializeField] private float acceleration = 5f;
     [SerializeField] private float deceleration = 5f;
     [SerializeField] private UnityEvent onFire;
@@ -29,7 +28,6 @@ public class PlayerManager : MonoBehaviour
 
     public void OnFire()
     {
-        print("ïèó");
         onFire.Invoke();
     }
 
