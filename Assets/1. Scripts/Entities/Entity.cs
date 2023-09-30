@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Entity : MonoBehaviour
 {
     [SerializeField] private int HP;
-    [SerializeField] private int Damage;
+    [SerializeField] private Weapon weapon;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent onHit;
     [Header("Info")]
@@ -36,7 +36,7 @@ public class Entity : MonoBehaviour
 
     public void Attack(Entity entity)
     {
-        entity.Hit(Damage);
+        entity.Hit(weapon.Damage);
     }
 
     private void Start()

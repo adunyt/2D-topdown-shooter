@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
-  Damage: 10
+  weapon: {fileID: 11400000, guid: fefd48ed24f641542a1a0531ce42f038, type: 2}
   onDeath:
     m_PersistentCalls:
       m_Calls:

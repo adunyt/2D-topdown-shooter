@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class ItemsToDrop : MonoBehaviour
 {
-    [SerializeField] GameObject item;
+    [SerializeField] Item item;
 
     [SerializeField] private bool random;
-    [SerializeField] private List<GameObject> randomItems = new List<GameObject>();
+    [SerializeField] private List<Item> randomItems = new List<Item>();
 
     public void Drop()
     {
-        GameObject itemToSpawn;
+        Item itemToSpawn;
         if (!random)
         {
             itemToSpawn = item;
