@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class ConsumableItem : MonoBehaviour
 {
     public Item item;
-    [SerializeField] private UnityEvent onConsume;
+    public UnityEvent onConsume;
     private SpriteRenderer spriteRenderer;
 
     private void Start()
@@ -20,11 +20,13 @@ public class ConsumableItem : MonoBehaviour
             return;
         }
         spriteRenderer.sprite = item.sprite;
+        Debug.Log("start");
     }
 
     public void Consume()
     {
         spriteRenderer.sprite = null;
         onConsume?.Invoke();
+        Debug.Log("consume");
     }
 }

@@ -2,6 +2,7 @@ using com.goldsprite.GSTools.EssentialAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class ItemsToDrop : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ItemsToDrop : MonoBehaviour
 
     [SerializeField] private SpawnType spawnType;
     [SerializeField] private List<Item> itemsToSpawn = new();
+    [SerializeField] private GameObject consumableItemTemplate;
 
     public void Drop()
     {
@@ -31,14 +33,15 @@ public class ItemsToDrop : MonoBehaviour
 
     private void SpawnConsumableItem(Item item)
     {
-        var consumableItem = new GameObject
+        if (!consumableItemTemplate.TryGetComponent(out ConsumableItem consItem))
         {
-            tag = "Items"
-        };
-        consumableItem.transform.position = transform.position;
-        var collider = consumableItem.AddComponent<CircleCollider2D>();
-        collider.radius = 0.3f;
-        collider.isTrigger = true;
-        consumableItem.AddComponent<ConsumableItem>().item = item;
+            Debug.LogError($"GameObject {consumableItemTemplate.name} doesn't have CunsumableItem Component!");
+            return;
+        }
+        consumableItemTemplate.name = $"ConsumableItem {consItem.item.itemName}";
+        consumableItemTemplate.transform.position = transform.position;
+        consItem.item = item;
+
+        Instantiate(consumableItemTemplate);
     }
 }

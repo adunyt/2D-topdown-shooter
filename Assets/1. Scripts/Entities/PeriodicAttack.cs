@@ -31,7 +31,7 @@ public class PeriodicAttack : MonoBehaviour
 
     private IEnumerator Attack(Entity entity)
     {
-        while (true)
+        while (attacker.IsAlive && entity.IsAlive)
         {
             attacker.Attack(entity);
             yield return new WaitForSeconds(coolDownInSeconds);

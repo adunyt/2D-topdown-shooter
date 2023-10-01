@@ -11,6 +11,8 @@ public class Entity : MonoBehaviour
     [Header("Info")]
     [SerializeField][ReadOnly] private int currentHP;
 
+    public bool IsAlive { get; private set; } = true;
+
     public int GetMaxHP()
     {
         return HP;
@@ -23,13 +25,15 @@ public class Entity : MonoBehaviour
 
     public void Hit(int damage)
     {
-        currentHP -= damage;
-        if (currentHP > 0)
+        if (currentHP - damage > 0)
         {
+            currentHP -= damage;
             onHit.Invoke();
         }
-        else
+        else if (IsAlive)
         {
+            currentHP = 0;
+            IsAlive = false;
             onDeath.Invoke();
         }
     }

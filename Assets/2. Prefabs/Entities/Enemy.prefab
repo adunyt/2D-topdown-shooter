@@ -195,8 +195,20 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8220753751407404025}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+      - m_Target: {fileID: 2266101102422587299}
+        m_TargetAssemblyTypeName: DelayedDestroy, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7206966824510684021}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -207,9 +219,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8666629637244216005}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 3793012861740276846}
+        m_TargetAssemblyTypeName: PeriodicAttack, Assembly-CSharp
+        m_MethodName: StopAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7808278610070734494}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: ClearTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2353933610517096384}
+        m_TargetAssemblyTypeName: LookAt, Assembly-CSharp
+        m_MethodName: RemoveTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -222,18 +258,6 @@ MonoBehaviour:
       - m_Target: {fileID: 4024528403545671365}
         m_TargetAssemblyTypeName: ItemsToDrop, Assembly-CSharp
         m_MethodName: Drop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2266101102422587299}
-        m_TargetAssemblyTypeName: DelayedDestroy, Assembly-CSharp
-        m_MethodName: Destroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -288,6 +312,7 @@ MonoBehaviour:
   spawnType: 0
   itemsToSpawn:
   - {fileID: 11400000, guid: 6a5e166f9c6d80f4bac15ce0cc3f4ce6, type: 2}
+  consumableItemTemplate: {fileID: 7754258616925035571, guid: d0a9c7212483b8942a05c2fd56168957, type: 3}
 --- !u!114 &3793012861740276846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948daafc85ae8974d97d47acc8d4a5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDownInSeconds: 0.5
+  coolDownInSeconds: 1
 --- !u!114 &2266101102422587299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c4dbdd96764924ab0673ce24ce0067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondBeforeDestroy: 2
+  secondBeforeDestroy: 0.5
   gameobjectToDestroy: {fileID: 1791594074297484413}
 --- !u!1 &2143030987406366271
 GameObject:
