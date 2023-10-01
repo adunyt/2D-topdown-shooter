@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2353933610517096384}
   - component: {fileID: 4024528403545671365}
   - component: {fileID: 3793012861740276846}
+  - component: {fileID: 2266101102422587299}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -194,6 +195,18 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8220753751407404025}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8666629637244216005}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
@@ -206,10 +219,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1791594074297484413}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 4024528403545671365}
+        m_TargetAssemblyTypeName: ItemsToDrop, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -218,9 +231,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4024528403545671365}
-        m_TargetAssemblyTypeName: ItemsToDrop, Assembly-CSharp
-        m_MethodName: Drop
+      - m_Target: {fileID: 2266101102422587299}
+        m_TargetAssemblyTypeName: DelayedDestroy, Assembly-CSharp
+        m_MethodName: Destroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -272,9 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3ae4c8a43071d49b4ca7428898aacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 8262952073408150770, guid: 24130335bc4b94f4f991be6a3e4dd9f6, type: 3}
-  random: 0
-  randomItems: []
+  spawnType: 0
+  itemsToSpawn:
+  - {fileID: 11400000, guid: 6a5e166f9c6d80f4bac15ce0cc3f4ce6, type: 2}
 --- !u!114 &3793012861740276846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +300,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948daafc85ae8974d97d47acc8d4a5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDownInSeconds: 2
+  coolDownInSeconds: 0.5
+--- !u!114 &2266101102422587299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791594074297484413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c4dbdd96764924ab0673ce24ce0067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondBeforeDestroy: 2
+  gameobjectToDestroy: {fileID: 1791594074297484413}
 --- !u!1 &2143030987406366271
 GameObject:
   m_ObjectHideFlags: 0

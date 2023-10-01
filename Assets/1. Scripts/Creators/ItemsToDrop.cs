@@ -5,22 +5,40 @@ using UnityEngine;
 
 public class ItemsToDrop : MonoBehaviour
 {
-    [SerializeField] Item item;
+    public enum SpawnType
+    {
+        First,
+        Random
+    }
 
-    [SerializeField] private bool random;
-    [SerializeField] private List<Item> randomItems = new List<Item>();
+    [SerializeField] private SpawnType spawnType;
+    [SerializeField] private List<Item> itemsToSpawn = new();
 
     public void Drop()
     {
-        Item itemToSpawn;
-        if (!random)
+        switch (spawnType)
         {
-            itemToSpawn = item;
+            case SpawnType.First:
+                SpawnConsumableItem(itemsToSpawn[0]);
+                break;
+            case SpawnType.Random:
+                SpawnConsumableItem(itemsToSpawn[Random.Range(0, itemsToSpawn.Count)]);
+                break;
+            default:
+                return;
         }
-        else
+    }
+
+    private void SpawnConsumableItem(Item item)
+    {
+        var consumableItem = new GameObject
         {
-            itemToSpawn = randomItems[Random.Range(0, randomItems.Count)];
-        }
-        Instantiate(itemToSpawn, transform.position, Quaternion.identity);
+            tag = "Items"
+        };
+        consumableItem.transform.position = transform.position;
+        var collider = consumableItem.AddComponent<CircleCollider2D>();
+        collider.radius = 0.3f;
+        collider.isTrigger = true;
+        consumableItem.AddComponent<ConsumableItem>().item = item;
     }
 }

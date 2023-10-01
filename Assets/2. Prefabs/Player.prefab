@@ -625,7 +625,7 @@ MonoBehaviour:
   itemsList:
   - {fileID: 11400000, guid: 6a5e166f9c6d80f4bac15ce0cc3f4ce6, type: 2}
   - {fileID: 11400000, guid: 64acbd8602aaa964ba49ea1aaac8d5a7, type: 2}
-  itemsCount: 010000000a000000
+  itemsCount: 01000a00
   onItemsChange:
     m_PersistentCalls:
       m_Calls:

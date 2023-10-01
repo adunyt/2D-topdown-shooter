@@ -3,30 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class ConsumableItem : MonoBehaviour
 {
     public Item item;
     [SerializeField] private UnityEvent onConsume;
-    [SerializeField] private float secondsBeforeDestroy = 1f;
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (item.sprite == null)
+        {
+            Debug.LogWarning("No sprite in item!");
+            return;
+        }
         spriteRenderer.sprite = item.sprite;
     }
 
     public void Consume()
     {
         spriteRenderer.sprite = null;
-        StartCoroutine(ConsumeCoroutine());
-    }
-
-    private IEnumerator ConsumeCoroutine()
-    {
-        onConsume.Invoke();
-        yield return new WaitForSeconds(secondsBeforeDestroy);
-        Destroy(this);
+        onConsume?.Invoke();
     }
 }
