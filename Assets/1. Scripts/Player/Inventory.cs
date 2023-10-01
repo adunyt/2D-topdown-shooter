@@ -43,4 +43,40 @@ public class Inventory : MonoBehaviour
         }
         onItemsChange.Invoke();
     }
+
+    // Method to convert inventory data to InventoryData structure
+    public InventoryData ToInventoryData()
+    {
+        var inventoryData = new InventoryData();
+        for (int i = 0; i < itemsList.Count; i++)
+        {
+            var itemData = new ItemData
+            {
+                itemName = itemsList[i].name,
+                count = itemsCount[i]
+            };
+            inventoryData.itemsDataList.Add(itemData);
+        }
+        return inventoryData;
+    }
+
+    // Method to load inventory data from InventoryData structure
+    public void FromInventoryData(InventoryData inventoryData)
+    {
+        itemsList.Clear();
+        itemsCount.Clear();
+
+        foreach (var itemData in inventoryData.itemsDataList)
+        {
+            var item = Resources.Load<Item>("Items/" + itemData.itemName);
+            print("Items/" + itemData.itemName);// Adjust the path as needed
+            if (item != null)
+            {
+                itemsList.Add(item);
+                itemsCount.Add(itemData.count);
+            }
+        }
+
+        onItemsChange.Invoke();
+    }
 }
