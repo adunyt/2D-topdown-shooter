@@ -296,7 +296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  lookAtSpeed: 180
+  smooth: 1
+  smoothSpeed: 5
 --- !u!114 &4024528403545671365
 MonoBehaviour:
   m_ObjectHideFlags: 0

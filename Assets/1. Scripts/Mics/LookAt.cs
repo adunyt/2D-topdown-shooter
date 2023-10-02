@@ -1,39 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LookAt : MonoBehaviour
 {
     [SerializeField] private GameObject target;
-
-    public float lookAtSpeed = 5.0f; // Adjust this value as needed
+    [SerializeField] private bool smooth;
+    [SerializeField] private float smoothSpeed = 5.0f;
 
     private void Update()
     {
         if (target != null)
         {
-            // Calculate the direction from the enemy to the target
             Vector3 directionToTarget = target.transform.position - transform.position;
 
             if (directionToTarget != Vector3.zero)
             {
-                // Create a rotation based on the direction to the target
+                // Calculate the rotation without creating a new Quaternion
                 Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, directionToTarget);
 
-                // Smoothly rotate the enemy towards the target
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
-            }
+                // Use Slerp for smooth rotation
+                if (smooth)
+                {
+                    targetRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothSpeed * Time.deltaTime);
+                }
 
+                transform.rotation = targetRotation;
+            }
         }
     }
 
     public void SetTarget(GameObject target)
     {
+        print("changing");
         this.target = target;
     }
 
     public void RemoveTarget()
     {
+        print("remove");
         this.target = null;
     }
 }

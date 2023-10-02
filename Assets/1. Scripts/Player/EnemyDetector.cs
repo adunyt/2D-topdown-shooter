@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class EnemyDetector : MonoBehaviour
 {
-    [Tooltip("Вызывает данное событие, когда замечается объект, либо меняется близжайший обьект, когда их несколько в поле зрения")]
+    [Tooltip("Event triggered when an object is detected or the closest object changes when multiple are in the field of view.")]
     [SerializeField] private UnityEvent<GameObject> onDetect;
     [SerializeField] private UnityEvent onLost;
     [SerializeField] private string enemyTag;
@@ -17,7 +17,7 @@ public class EnemyDetector : MonoBehaviour
 
     private Vector3 playerPosition;
     private GameObject previousEnemy;
-
+    private bool isLost = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,18 +35,39 @@ public class EnemyDetector : MonoBehaviour
     {
         if (detectedEnemies.Count < 1)
         {
-            onLost.Invoke();
-            closestEnemy = null;
-            closestDistance = 0;
+            if (isLost == false)
+            {
+                ClearClosestEnemy();
+                onLost.Invoke();
+            }
             return;
         }
+
+        isLost = false;
 
         playerPosition = transform.position;
 
         previousEnemy = closestEnemy;
 
+        FindClosestEnemy();
+
+        if (previousEnemy != closestEnemy)
+        {
+            onDetect.Invoke(closestEnemy);
+        }
+    }
+
+    private void ClearClosestEnemy()
+    {
+        closestEnemy = null;
+        closestDistance = 0;
+        isLost = true;
+    }
+
+    private void FindClosestEnemy()
+    {
         closestEnemy = detectedEnemies[0];
-        closestDistance = Vector3.Distance(playerPosition, detectedEnemies[0].transform.position); 
+        closestDistance = Vector3.Distance(playerPosition, detectedEnemies[0].transform.position);
 
         if (detectedEnemies.Count > 1)
         {
@@ -54,6 +75,7 @@ public class EnemyDetector : MonoBehaviour
             {
                 var enemyPosition = enemy.transform.position;
                 var distance = Vector3.Distance(playerPosition, enemyPosition);
+
                 if (closestDistance > distance)
                 {
                     closestDistance = distance;
@@ -61,11 +83,5 @@ public class EnemyDetector : MonoBehaviour
                 }
             }
         }
-
-        if (previousEnemy != closestEnemy)
-        {
-            onDetect.Invoke(closestEnemy);
-        }
-
     }
 }

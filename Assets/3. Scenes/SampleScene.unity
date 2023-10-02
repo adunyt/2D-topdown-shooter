@@ -1690,6 +1690,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6286384930212870586, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286384930371672117, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286384930371672117, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286384931447690343, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6286384931455557809, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1698,22 +1714,6 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 1699487013}
-    - target: {fileID: 6286384931455557812, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
-      propertyPath: items.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286384931455557812, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
-      propertyPath: items.Array.data[0].item
-      value: 
-      objectReference: {fileID: 11400000, guid: 6a5e166f9c6d80f4bac15ce0cc3f4ce6, type: 2}
-    - target: {fileID: 6286384931455557812, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
-      propertyPath: items.Array.data[1].item
-      value: 
-      objectReference: {fileID: 11400000, guid: 64acbd8602aaa964ba49ea1aaac8d5a7, type: 2}
-    - target: {fileID: 6286384931455557812, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
-      propertyPath: items.Array.data[1].count
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6286384931455557812, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
       propertyPath: onItemsChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1766,9 +1766,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6286384931455557823, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 6286384931666610373, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
+      propertyPath: smooth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286384931666610373, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
+      propertyPath: smoothSpeed
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4157527ec12fbbb44851a25b5857a095, type: 3}
