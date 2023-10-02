@@ -6,6 +6,7 @@ public class InterfaceDrawer : MonoBehaviour
 {
     private Inventory inventory; // No need to serialize, as we'll use the singleton
     [SerializeField] private ItemDrawer itemDrawerPrefab; // Reference to your ItemDrawer prefab
+    [SerializeField] private Button outsideClickButton;
     private List<ItemDrawer> itemDrawers = new List<ItemDrawer>();
 
     private void Awake()
@@ -35,6 +36,7 @@ public class InterfaceDrawer : MonoBehaviour
             {
                 // Item drawer doesn't exist; instantiate and add it
                 itemDrawer = InstantiateItemDrawer(i);
+                itemDrawer.outsideClickButton = outsideClickButton;
                 itemDrawers.Add(itemDrawer);
             }
 
