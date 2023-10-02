@@ -1,16 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InterfaceDrawer : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    private Inventory inventory; // No need to serialize, as we'll use the singleton
     [SerializeField] private ItemDrawer itemDrawerPrefab; // Reference to your ItemDrawer prefab
     private List<ItemDrawer> itemDrawers = new List<ItemDrawer>();
 
     private void Awake()
     {
+        inventory = Inventory.Instance; // Get the Inventory singleton instance
+
         // Initialize the UI based on the current inventory
         UpdateUI();
     }
@@ -18,7 +19,8 @@ public class InterfaceDrawer : MonoBehaviour
     public void UpdateUI()
     {
         // Get the current items and counts from the inventory
-        var (items, itemsCount) = inventory.GetAllItems();
+        var items = inventory.GetAllItems();
+
 
         for (int i = 0; i < items.Count; i++)
         {
@@ -37,7 +39,7 @@ public class InterfaceDrawer : MonoBehaviour
             }
 
             // Set the item and count in the item drawer
-            itemDrawer.SetItem(items[i], itemsCount[i]);
+            itemDrawer.SetItem(items[i].item, items[i].count);
         }
 
         // Disable any extra item drawers that are not needed
@@ -54,5 +56,4 @@ public class InterfaceDrawer : MonoBehaviour
         itemDrawer.name = $"ItemDrawer_{index}"; // Optional: Rename for clarity
         return itemDrawer;
     }
-
 }
