@@ -8,6 +8,13 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         inventory = Inventory.Instance;
+        LoadInventory();
+        Application.quitting += Application_quitting;
+    }
+
+    private void Application_quitting()
+    {
+        SaveInventory();
     }
 
     // Save inventory data to a JSON file in the game's persistent data path
