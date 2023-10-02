@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class ItemsCollector : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    private Inventory inventory;
     [SerializeField] private string itemsTag;
+
+
+    private void Awake()
+    {
+        inventory = Inventory.Instance;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

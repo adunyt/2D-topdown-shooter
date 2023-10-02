@@ -3,7 +3,12 @@ using System.IO;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    private Inventory inventory;
+
+    private void Awake()
+    {
+        inventory = Inventory.Instance;
+    }
 
     // Save inventory data to a JSON file in the game's persistent data path
     public void SaveInventory()
