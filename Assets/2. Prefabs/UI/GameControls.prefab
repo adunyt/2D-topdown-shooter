@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -50, y: 50}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &4158661384039290846
 CanvasRenderer:
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7c87c0084c3117148a282dce60a7d2f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a58c5ac22b4b7aa43bfbcb8ebb87602b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -206,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 1146017849612447634, guid: f34ac896e8bd6fd48932dc2359b8888f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 674fbb0cab1ea364e97edfc9d3837e92, type: 3}
+      objectReference: {fileID: 21300000, guid: 404783e323aa45e41aabe82f815c9b0e, type: 3}
     - target: {fileID: 1146017849612447634, guid: f34ac896e8bd6fd48932dc2359b8888f, type: 3}
       propertyPath: m_Color.a
       value: 0.6

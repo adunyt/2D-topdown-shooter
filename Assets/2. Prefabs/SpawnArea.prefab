@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fa314b24188514cb5cd7f938ab62e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyManager: {fileID: 0}
-  height: 8
-  width: 4.45
+  height: 10.55
+  width: 7.64
   objectsToSpawn:
-  - {fileID: 1791594074297484413, guid: b9997c6d733b36348820d8bc5af0845f, type: 3}
-  - {fileID: 1791594074297484413, guid: b9997c6d733b36348820d8bc5af0845f, type: 3}
-  - {fileID: 1791594074297484413, guid: b9997c6d733b36348820d8bc5af0845f, type: 3}
+  - {fileID: 1791594074297484413, guid: 2872727ae1ed16547b515dc6829304d3, type: 3}
+  - {fileID: 1791594074297484413, guid: 2872727ae1ed16547b515dc6829304d3, type: 3}
+  - {fileID: 1791594074297484413, guid: 2872727ae1ed16547b515dc6829304d3, type: 3}
