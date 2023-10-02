@@ -33,15 +33,17 @@ public class ItemsToDrop : MonoBehaviour
 
     private void SpawnConsumableItem(Item item)
     {
-        if (!consumableItemTemplate.TryGetComponent(out ConsumableItem consItem))
+        var consumableItem = Instantiate(consumableItemTemplate);
+        if (!consumableItem.TryGetComponent(out ConsumableItem consItem))
         {
-            Debug.LogError($"GameObject {consumableItemTemplate.name} doesn't have CunsumableItem Component!");
+            Debug.LogError($"GameObject {consumableItem.name} doesn't have CunsumableItem Component!");
+            Destroy(consumableItem);
             return;
         }
-        consumableItemTemplate.name = $"ConsumableItem {consItem.item.itemName}";
-        consumableItemTemplate.transform.position = transform.position;
+
+        consumableItem.name = $"ConsumableItem {consItem.item.itemName}";
+        consumableItem.transform.position = transform.position;
         consItem.item = item;
 
-        Instantiate(consumableItemTemplate);
     }
 }
