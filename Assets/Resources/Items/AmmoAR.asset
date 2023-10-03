@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed7623f204837048a6f20a895f2179c, type: 3}
   m_Name: AmmoAR
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7781157a8e7cf774bb2f2d6df6663ef9, type: 3}
   itemName: "\u041F\u0430\u0442\u0440\u043E\u043D\u044B \u0434\u043B\u044F \u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0430"
   description: 
-  type: 1
+  stackable: 1
+  type: 2
